@@ -14,7 +14,7 @@ stages:
     - prepare.oversampling.method_params
     outs:
     - data/prepared
-  
+
   train:
     cmd: uv run src/train.py
     deps:
@@ -26,3 +26,12 @@ stages:
     outs:
     - data/models/improved_c45_model.joblib
     - logs/train.log
+
+  evaluate:
+    cmd: uv run src/evaluate.py
+    deps:
+    - data/models/improved_c45_model.joblib
+    - data/prepared/test.csv
+    - src/evaluate.py
+    outs:
+    - evaluate

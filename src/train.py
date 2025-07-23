@@ -21,7 +21,7 @@ def train_process(model, model_params):
     logger.info("Loading training data...")
     train_df = pd.read_csv(os.path.join("data", "prepared", "train.csv"))
     logger.info("Training model...")
-    model.fit(train_df.drop("label", axis=1), train_df["label"])
+    model.fit(train_df.drop("Label", axis=1), train_df["Label"])
 
     logger.info("Saving model...")
     model.save(os.path.join("data", "models", "improved_c45_model.joblib"))

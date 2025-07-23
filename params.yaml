@@ -6,3 +6,8 @@ prepare:
       neighbors: 3
       seed: 42
       sampling_strategy: "auto"
+
+train:
+  classifier: "ImprovedC45"
+  classifier_params:
+    max_depth: 10

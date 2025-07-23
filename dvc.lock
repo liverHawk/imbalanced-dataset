@@ -46,3 +46,28 @@ stages:
       md5: 9a4c617afe732a4333cc5b15a08ee889.dir
       size: 16243978165
       nfiles: 2
+  train:
+    cmd: uv run src/train.py
+    deps:
+    - path: data/prepared/train.csv
+      hash: md5
+      md5: 9abe1724f4a25f26889eae25790d8a4c
+      size: 16073897702
+    - path: src/train.py
+      hash: md5
+      md5: 79bc568b376d7846763bb61960ab726a
+      size: 1226
+    params:
+      params.yaml:
+        train.classifier: ImprovedC45
+        train.classifier_params:
+          max_depth: 10
+    outs:
+    - path: data/models/improved_c45_model.joblib
+      hash: md5
+      md5: a82cea51469942b6d84bb0615635042c
+      size: 163393
+    - path: logs/train.log
+      hash: md5
+      md5: ffeed7ffae703887e7c791ce20113974
+      size: 339

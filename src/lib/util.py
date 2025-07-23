@@ -174,3 +174,34 @@ class CICIDS2017:
     
     def get_features_labels(self):
         return self.features_labels
+
+def setup_logging(path):
+    import logging
+    import coloredlogs
+
+    # Create a logger
+    logger = logging.getLogger('my_logger')
+    logger.setLevel(logging.DEBUG)
+    coloredlogs.install(level='DEBUG', logger=logger)
+    # Create console handler and set level to debug
+    # ch = logging.StreamHandler(sys.stdout)
+    # ch.setLevel(logging.DEBUG)
+
+    # Create file handler and set level to debug
+    fh = logging.FileHandler(path)
+    fh.setLevel(logging.DEBUG)
+
+    # Create formatter
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+
+    # Add formatter to handler
+    # ch.setFormatter(formatter)
+    fh.setFormatter(formatter)
+
+    # Add handler to logger
+    # logger.addHandler(ch)
+    logger.addHandler(fh)
+
+    return logger

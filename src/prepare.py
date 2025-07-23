@@ -6,9 +6,11 @@ import numpy as np
 from glob import glob
 from tqdm import tqdm
 from ipaddress import ip_address as ip
+from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 import imblearn.over_sampling as imblearn_os
 from dvclive import Live
+from lib.util import setup_logging
 
 from lib.util import CICIDS2017, BASE
 
@@ -67,7 +69,10 @@ def oversampling(df, method, method_params):
 
 
 def data_process(input_path, params):
-    print("start")
+    log_path = os.path.join("logs", "prepare.log")
+    logger = setup_logging(log_path)
+
+    logger.info("Starting data processing...")
     files = glob(f"{input_path}/*.csv")
     dfs = [fast_process(pd.read_csv(f)) for f in tqdm(files)]
     df  = pd.concat(dfs, ignore_index=True)
@@ -77,8 +82,16 @@ def data_process(input_path, params):
     }
     df = df.rename(columns=rename_dict)
 
+    logger.info(f"Label encoding...")
+    le = LabelEncoder()
+    df["Label"] = le.fit_transform(df["Label"])
+    with open("label.txt", "w") as f:
+        for label, idx in zip(le.classes_, le.transform(le.classes_)):
+            f.write(f"{idx}: {label}\n")
+
     train_df, test_df = train_test_split(df, test_size=params["split"], random_state=42)
     
+    logger.info("Oversampling the training data...")
     train_df = oversampling(
         train_df,
         method=params["oversampling"]["method"],

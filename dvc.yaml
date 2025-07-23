@@ -1,0 +1,17 @@
+stages:
+  prepare:
+    cmd: uv run src/prepare.py
+    deps:
+    - data/CICIDS2017_improved/friday.csv
+    - data/CICIDS2017_improved/monday.csv
+    - data/CICIDS2017_improved/thursday.csv
+    - data/CICIDS2017_improved/tuesday.csv
+    - data/CICIDS2017_improved/wednesday.csv
+    - src/prepare.py
+    params:
+    - prepare.seed
+    - prepare.split
+    - prepare.oversampling.method
+    - prepare.oversampling.method_params
+    outs:
+    - data/prepared

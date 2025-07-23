@@ -1,0 +1,8 @@
+prepare:
+  seed: 42
+  split: 0.8
+  oversampling:
+    method: "SMOTE"
+    method_params:
+      k_neighbors: 5
+      sampling_strategy: "auto"

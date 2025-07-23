@@ -1,0 +1,48 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: uv run src/prepare.py
+    deps:
+    - path: data/CICIDS2017_improved/friday.csv
+      hash: md5
+      md5: 7be19ef0498792c2d571745b0b26bd3d
+      size: 285188226
+      isexec: true
+    - path: data/CICIDS2017_improved/monday.csv
+      hash: md5
+      md5: 970ac311bb290c762c293d545acaaaa2
+      size: 207875155
+      isexec: true
+    - path: data/CICIDS2017_improved/thursday.csv
+      hash: md5
+      md5: 7dd4ed6edf5968d396af8a9066aa4e39
+      size: 189519159
+      isexec: true
+    - path: data/CICIDS2017_improved/tuesday.csv
+      hash: md5
+      md5: d067bdf5f6b6be5580cc7c4c62c8f92d
+      size: 178397720
+      isexec: true
+    - path: data/CICIDS2017_improved/wednesday.csv
+      hash: md5
+      md5: 67a2f5a133d77f179f194994dd5ca157
+      size: 291290505
+      isexec: true
+    - path: src/prepare.py
+      hash: md5
+      md5: 782dca34c8a1f29bc172fb9ca7499f4e
+      size: 223
+    params:
+      params.yaml:
+        prepare.oversampling.method: SMOTE
+        prepare.oversampling.method_params:
+          k_neighbors: 5
+          sampling_strategy: auto
+        prepare.seed: 42
+        prepare.split: 0.8
+    outs:
+    - path: data/prepared
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

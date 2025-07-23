@@ -13,13 +13,13 @@ def train_process(model, model_params):
     if model == "ImprovedC45":
         logger.info("Using ImprovedC45 classifier.")
         model = ImprovedC45(
-            max_depth=model_params["classifier_params"]["max_depth"],
+            max_depth=model_params["max_depth"],
         )
     else:
         raise ValueError(f"Unsupported classifier: {model_params['classifier']}")
 
     logger.info("Loading training data...")
-    train_df = pd.read_csv(os.path.join("data", "train.csv"))
+    train_df = pd.read_csv(os.path.join("data", "prepared", "train.csv"))
     logger.info("Training model...")
     model.fit(train_df.drop("label", axis=1), train_df["label"])
 
@@ -29,6 +29,7 @@ def train_process(model, model_params):
 
 
 def main():
+    os.makedirs(os.path.join("logs"), exist_ok=True)
     params = yaml.safe_load(open("params.yaml", "r"))["train"]
     print(params)
     os.makedirs(os.path.join("data", "models"), exist_ok=True)

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "coloredlogs>=15.0.1",
+    "dvc[all]>=3.61.0",
     "dvclive>=3.48.3",
     "imbalanced-learn",
     "matplotlib>=3.10.3",

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "dvclive>=3.48.3",
+    "imbalanced-learn",
     "matplotlib>=3.10.3",
     "pandas>=2.3.1",
     "pyaml>=25.7.0",
@@ -16,3 +17,6 @@ dependencies = [
 dev = [
     "ipykernel>=6.30.0",
 ]
+
+[tool.uv.sources]
+imbalanced-learn = { git = "https://github.com/scikit-learn-contrib/imbalanced-learn" }

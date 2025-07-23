@@ -1,7 +1,7 @@
 schema: '2.0'
 stages:
   prepare:
-    cmd: uv run src/prepare.py
+    cmd: uv run src/prepare.py data/CICIDS2017_improved
     deps:
     - path: data/CICIDS2017_improved/friday.csv
       hash: md5
@@ -30,19 +30,19 @@ stages:
       isexec: true
     - path: src/prepare.py
       hash: md5
-      md5: 782dca34c8a1f29bc172fb9ca7499f4e
-      size: 223
+      md5: ad93c58046ee8c119fa5e7263662479d
+      size: 3478
     params:
       params.yaml:
         prepare.oversampling.method: SMOTE
         prepare.oversampling.method_params:
-          k_neighbors: 5
+          neighbors: 3
+          seed: 42
           sampling_strategy: auto
-        prepare.seed: 42
-        prepare.split: 0.8
+        prepare.split: 0.2
     outs:
     - path: data/prepared
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: 9a4c617afe732a4333cc5b15a08ee889.dir
+      size: 16243978165
+      nfiles: 2

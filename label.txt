@@ -1,0 +1,27 @@
+0: BENIGN
+1: Botnet
+2: Botnet - Attempted
+3: DDoS
+4: DoS GoldenEye
+5: DoS GoldenEye - Attempted
+6: DoS Hulk
+7: DoS Hulk - Attempted
+8: DoS Slowhttptest
+9: DoS Slowhttptest - Attempted
+10: DoS Slowloris
+11: DoS Slowloris - Attempted
+12: FTP-Patator
+13: FTP-Patator - Attempted
+14: Heartbleed
+15: Infiltration
+16: Infiltration - Attempted
+17: Infiltration - Portscan
+18: Portscan
+19: SSH-Patator
+20: SSH-Patator - Attempted
+21: Web Attack - Brute Force
+22: Web Attack - Brute Force - Attempted
+23: Web Attack - SQL Injection
+24: Web Attack - SQL Injection - Attempted
+25: Web Attack - XSS
+26: Web Attack - XSS - Attempted

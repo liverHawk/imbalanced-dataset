@@ -14,6 +14,7 @@ stages:
     - prepare.oversampling.method_params
     outs:
     - data/prepared
+    - logs/prepare.log
 
   train:
     cmd: uv run src/train.py
@@ -35,3 +36,14 @@ stages:
     - src/evaluate.py
     outs:
     - evaluate
+    - logs/evaluate.log
+metrics:
+- evaluate/metrics.json
+plots:
+- evaluate/plots/sklearn/confusion_matrix.json:
+    template: confusion
+    x: actual
+    y: predicted
+    title: Confusion Matrix
+    x_label: True Label
+    y_label: Predicted Label

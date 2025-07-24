@@ -45,7 +45,9 @@ def oversampling(df, method, method_params):
             f"Minimum label count {min_count} is less than neighbors {method_params['neighbors']}"
         )
 
-    if method == "SMOTE":
+    if method == "None":
+        return df
+    elif method == "SMOTE":
         os_method = imblearn_os.SMOTE(
             k_neighbors=method_params["neighbors"],
             sampling_strategy=method_params["sampling_strategy"],
@@ -97,6 +99,7 @@ def data_process(input_path, params):
         method=params["oversampling"]["method"],
         method_params=params["oversampling"]["method_params"]
     )
+    logger.info("Data processing completed.")
 
     return train_df, test_df
 

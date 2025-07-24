@@ -1,7 +1,7 @@
 prepare:
   split: 0.2 # test size
   oversampling:
-    method: "SMOTE"
+    method: "None"
     method_params:
       neighbors: 3
       seed: 42

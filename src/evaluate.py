@@ -23,18 +23,18 @@ def save_evaluation_results(live: Live, predict_probs, test_labels):
         "balanced_accuracy": emr,
     }
 
-    live.log_sklearn_plot(
-        "roc",
-        test_labels,
-        predict_probs,
-        title="ROC Curve",
-    )
-    live.log_sklearn_plot(
-        "precision_recall",
-        test_labels,
-        predict_probs,
-        title="Precision-Recall Curve",
-    )
+    # live.log_sklearn_plot(
+    #     "roc",
+    #     test_labels,
+    #     predict_probs[:, 1],
+    #     title="ROC Curve",
+    # )
+    # live.log_sklearn_plot(
+    #     "precision_recall",
+    #     test_labels,
+    #     predict_probs,
+    #     title="Precision-Recall Curve",
+    # )
     live.log_sklearn_plot(
         "confusion_matrix",
         test_labels,

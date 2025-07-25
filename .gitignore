@@ -1,3 +1,4 @@
 *.note.*
 __pycache__
 /evaluate
+/dvc_plots

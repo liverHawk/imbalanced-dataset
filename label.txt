@@ -1,27 +1,27 @@
-0: BENIGN
-1: Botnet
-2: Botnet - Attempted
-3: DDoS
-4: DoS GoldenEye
-5: DoS GoldenEye - Attempted
-6: DoS Hulk
-7: DoS Hulk - Attempted
-8: DoS Slowhttptest
-9: DoS Slowhttptest - Attempted
-10: DoS Slowloris
-11: DoS Slowloris - Attempted
-12: FTP-Patator
-13: FTP-Patator - Attempted
-14: Heartbleed
-15: Infiltration
-16: Infiltration - Attempted
-17: Infiltration - Portscan
-18: Portscan
-19: SSH-Patator
-20: SSH-Patator - Attempted
-21: Web Attack - Brute Force
-22: Web Attack - Brute Force - Attempted
-23: Web Attack - SQL Injection
-24: Web Attack - SQL Injection - Attempted
-25: Web Attack - XSS
-26: Web Attack - XSS - Attempted
+0: BENIGN, test: 316776
+1: Botnet, test: 151
+2: Botnet - Attempted, test: 816
+3: DDoS, test: 18981
+4: DoS GoldenEye, test: 1529
+5: DoS GoldenEye - Attempted, test: 17
+6: DoS Hulk, test: 31381
+7: DoS Hulk - Attempted, test: 119
+8: DoS Slowhttptest, test: 365
+9: DoS Slowhttptest - Attempted, test: 689
+10: DoS Slowloris, test: 766
+11: DoS Slowloris - Attempted, test: 363
+12: FTP-Patator, test: 751
+13: FTP-Patator - Attempted, test: 0
+14: Heartbleed, test: 4
+15: Infiltration, test: 10
+16: Infiltration - Attempted, test: 10
+17: Infiltration - Portscan, test: 14309
+18: Portscan, test: 31920
+19: SSH-Patator, test: 604
+20: SSH-Patator - Attempted, test: 6
+21: Web Attack - Brute Force, test: 21
+22: Web Attack - Brute Force - Attempted, test: 273
+23: Web Attack - SQL Injection, test: 2
+24: Web Attack - SQL Injection - Attempted, test: 1
+25: Web Attack - XSS, test: 3
+26: Web Attack - XSS - Attempted, test: 128

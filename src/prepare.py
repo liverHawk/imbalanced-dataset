@@ -87,12 +87,15 @@ def data_process(input_path, params):
     logger.info(f"Label encoding...")
     le = LabelEncoder()
     df["Label"] = le.fit_transform(df["Label"])
-    with open("label.txt", "w") as f:
-        for label, idx in zip(le.classes_, le.transform(le.classes_)):
-            f.write(f"{idx}: {label}\n")
 
     train_df, test_df = train_test_split(df, test_size=params["split"], random_state=42)
     
+    test_value_counts = test_df["Label"].value_counts()
+
+    with open("label.txt", "w") as f:
+        for label, idx in zip(le.classes_, le.transform(le.classes_)):
+            f.write(f"{idx}: {label}, test: {test_value_counts.get(idx, 0)}\n")
+
     logger.info("Oversampling the training data...")
     train_df = oversampling(
         train_df,

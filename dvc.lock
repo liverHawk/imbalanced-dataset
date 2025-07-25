@@ -7,34 +7,29 @@ stages:
       hash: md5
       md5: 7be19ef0498792c2d571745b0b26bd3d
       size: 285188226
-      isexec: true
     - path: data/CICIDS2017_improved/monday.csv
       hash: md5
       md5: 970ac311bb290c762c293d545acaaaa2
       size: 207875155
-      isexec: true
     - path: data/CICIDS2017_improved/thursday.csv
       hash: md5
       md5: 7dd4ed6edf5968d396af8a9066aa4e39
       size: 189519159
-      isexec: true
     - path: data/CICIDS2017_improved/tuesday.csv
       hash: md5
       md5: d067bdf5f6b6be5580cc7c4c62c8f92d
       size: 178397720
-      isexec: true
     - path: data/CICIDS2017_improved/wednesday.csv
       hash: md5
       md5: 67a2f5a133d77f179f194994dd5ca157
       size: 291290505
-      isexec: true
     - path: src/prepare.py
       hash: md5
-      md5: 109f51fdd246d566dad9620f4f9b57d1
-      size: 4082
+      md5: 75ac450f582812a8ef45b4c57467db78
+      size: 4179
     params:
       params.yaml:
-        prepare.oversampling.method: None
+        prepare.oversampling.method: ADASYN
         prepare.oversampling.method_params:
           neighbors: 3
           seed: 42
@@ -43,20 +38,20 @@ stages:
     outs:
     - path: data/prepared
       hash: md5
-      md5: 1d5c85efb69f55c4237dfa53797be0e7.dir
-      size: 837732754
+      md5: 5f901bbb0ce2ddeef3f16264c864ecf9.dir
+      size: 16112394630
       nfiles: 2
     - path: logs/prepare.log
       hash: md5
-      md5: 42323d8647ba4c187871220305edbdec
+      md5: 8bc2e769eceebd9566f2fc7e73897f4a
       size: 287
   train:
     cmd: uv run src/train.py
     deps:
     - path: data/prepared/train.csv
       hash: md5
-      md5: f12434af07a6dc00de86c0f2fe733930
-      size: 670108207
+      md5: 567c10289a2c169487933c6e4e2697ce
+      size: 15944988645
     - path: src/train.py
       hash: md5
       md5: 79bc568b376d7846763bb61960ab726a
@@ -69,34 +64,34 @@ stages:
     outs:
     - path: data/models/improved_c45_model.joblib
       hash: md5
-      md5: 84d7416ab7c6c104f2771b89b8dcd5a5
-      size: 116417
+      md5: bd5274abeea369d4a43c15af81917cbd
+      size: 165137
     - path: logs/train.log
       hash: md5
-      md5: ead7ee897c863f46a59f85922f48c82f
+      md5: c983981563d50f7f6e82c70ae5ff471e
       size: 339
   evaluate:
     cmd: uv run src/evaluate.py
     deps:
     - path: data/models/improved_c45_model.joblib
       hash: md5
-      md5: 84d7416ab7c6c104f2771b89b8dcd5a5
-      size: 116417
+      md5: bd5274abeea369d4a43c15af81917cbd
+      size: 165137
     - path: data/prepared/test.csv
       hash: md5
-      md5: ebec9d37e68138f69c65140888c8e05c
-      size: 167624547
+      md5: 8d1d98ee90e7748d3a806f9b01c3055e
+      size: 167405985
     - path: src/evaluate.py
       hash: md5
-      md5: 3cc110e7d079d64742db504d5df86927
-      size: 2072
+      md5: 107f34ac90bbad4a09de1dcfdd121c08
+      size: 2579
     outs:
     - path: evaluate
       hash: md5
-      md5: bbbecbf6894ab152e554c80caad2b6b0.dir
-      size: 25741319
-      nfiles: 3
+      md5: b36a8246cabda5d6fadd79b581719f1d.dir
+      size: 25744853
+      nfiles: 4
     - path: logs/evaluate.log
       hash: md5
-      md5: 75a432fdd4c89fb73f8defd5cc3c7ea0
+      md5: 2bf95a2b7b92e32b0d17945bd8335957
       size: 193

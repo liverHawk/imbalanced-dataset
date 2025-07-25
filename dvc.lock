@@ -88,15 +88,15 @@ stages:
       size: 167624547
     - path: src/evaluate.py
       hash: md5
-      md5: 990200fa63a98b396224d705a5806e2c
-      size: 1947
+      md5: 3cc110e7d079d64742db504d5df86927
+      size: 2072
     outs:
     - path: evaluate
       hash: md5
-      md5: 6a99805e89a8c206b1eb70aea02aabde.dir
-      size: 25717840
-      nfiles: 2
+      md5: bbbecbf6894ab152e554c80caad2b6b0.dir
+      size: 25741319
+      nfiles: 3
     - path: logs/evaluate.log
       hash: md5
-      md5: 4c61eb8ece8fd6296f4627025da72193
+      md5: 75a432fdd4c89fb73f8defd5cc3c7ea0
       size: 193

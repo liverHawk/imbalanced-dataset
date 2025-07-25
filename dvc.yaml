@@ -40,6 +40,7 @@ stages:
 metrics:
 - evaluate/metrics.json
 plots:
+- evaluate/plots/images
 - evaluate/plots/sklearn/confusion_matrix.json:
     template: confusion
     x: actual

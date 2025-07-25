@@ -1,13 +1,13 @@
 prepare:
   split: 0.2 # test size
   oversampling:
-    method: "None"
+    method: SMOTE
     method_params:
       neighbors: 3
       seed: 42
-      sampling_strategy: "auto"
+      sampling_strategy: auto
 
 train:
-  classifier: "ImprovedC45"
+  classifier: ImprovedC45
   classifier_params:
     max_depth: 10

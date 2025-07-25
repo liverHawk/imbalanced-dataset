@@ -1,6 +1,6 @@
 outs:
-- md5: a29c8bd7173255a546894aef9318db07.dir
-  size: 23200063
+- md5: 30532cd82621aea46da880e06cc7d674.dir
+  size: 23200211
   nfiles: 1
   hash: md5
   path: dvc_plots

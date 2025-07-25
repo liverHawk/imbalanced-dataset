@@ -23,23 +23,24 @@ def save_evaluation_results(live: Live, predict_probs, test_labels):
         "balanced_accuracy": emr,
     }
 
-    # live.log_sklearn_plot(
-    #     "roc",
-    #     test_labels,
-    #     predict_probs[:, 1],
-    #     title="ROC Curve",
-    # )
-    # live.log_sklearn_plot(
-    #     "precision_recall",
-    #     test_labels,
-    #     predict_probs,
-    #     title="Precision-Recall Curve",
-    # )
     live.log_sklearn_plot(
         "confusion_matrix",
         test_labels,
         predict_actions,
         title="Confusion Matrix",
+    )
+
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    conf_matrix = metrics.confusion_matrix(test_labels, predict_actions, normalize='true')
+    fig, ax = plt.subplots()
+    sns.heatmap(conf_matrix, annot=False, cmap='Blues', ax=ax)
+    ax.set_title("Confusion Matrix")
+    ax.set_xlabel("Predicted")
+    ax.set_ylabel("Actual")
+    live.log_image(
+        "confusion_matrix_image.png",
+        fig,
     )
 
 

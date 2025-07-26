@@ -29,7 +29,7 @@ stages:
       size: 4179
     params:
       params.yaml:
-        prepare.oversampling.method: None
+        prepare.oversampling.method: SMOTE
         prepare.oversampling.method_params:
           neighbors: 3
           seed: 42
@@ -38,20 +38,20 @@ stages:
     outs:
     - path: data/prepared
       hash: md5
-      md5: 43103b5652b61d0b0fa068c5c2b9e657.dir
-      size: 837500775
+      md5: 53d9c511bf116039a6bdedea31145aa1.dir
+      size: 15660028012
       nfiles: 2
     - path: logs/prepare.log
       hash: md5
-      md5: 77006964919f374b25a7f867bc3bbab3
+      md5: 35cd1ab6b6bab1e6b0be846717c4ff84
       size: 287
   train:
     cmd: uv run src/train.py
     deps:
     - path: data/prepared/train.csv
       hash: md5
-      md5: 91f248cda1a245f8bc202ca388f1d86a
-      size: 670094790
+      md5: 0ec11455d19e77fee2e02e36bdcff72c
+      size: 15492567885
     - path: src/train.py
       hash: md5
       md5: 79bc568b376d7846763bb61960ab726a
@@ -64,34 +64,34 @@ stages:
     outs:
     - path: data/models/improved_c45_model.joblib
       hash: md5
-      md5: da79926e63ca27b87ac6d41502ff2a0f
-      size: 116977
+      md5: 00e16ec46525a4bc9b5c901bb5abf955
+      size: 165697
     - path: logs/train.log
       hash: md5
-      md5: cae3fb73a162ab06882b05c16cfec804
+      md5: bfa0dc97482175312a841b187679f284
       size: 339
   evaluate:
     cmd: uv run src/evaluate.py
     deps:
     - path: data/models/improved_c45_model.joblib
       hash: md5
-      md5: da79926e63ca27b87ac6d41502ff2a0f
-      size: 116977
+      md5: 00e16ec46525a4bc9b5c901bb5abf955
+      size: 165697
     - path: data/prepared/test.csv
       hash: md5
-      md5: 8d1d98ee90e7748d3a806f9b01c3055e
-      size: 167405985
+      md5: b80a166bc1885ca2c074196d384605dc
+      size: 167460127
     - path: src/evaluate.py
       hash: md5
-      md5: d674c8ef9c8ae181e3e9c6db0294111b
-      size: 3174
+      md5: 421b12018206c663b1d9f638fd8d3a76
+      size: 3125
     outs:
     - path: evaluate
       hash: md5
-      md5: a8dc11e31c8f7e67844c87d51aefe701.dir
-      size: 25747839
+      md5: 21cf6ef5a7e90de61c555cda3ae06cfe.dir
+      size: 25748096
       nfiles: 5
     - path: logs/evaluate.log
       hash: md5
-      md5: 1228f6977be3f32067a662d459f717e9
+      md5: 86ada8cb31284b803a9b1832697376ed
       size: 193

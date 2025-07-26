@@ -1,7 +1,7 @@
-0: BENIGN, test: 316776
-1: Botnet, test: 151
-2: Botnet - Attempted, test: 816
-3: DDoS, test: 18981
+0: BENIGN, test: 316748
+1: Botnet, test: 145
+2: Botnet - Attempted, test: 848
+3: DDoS, test: 19042
 4: DoS GoldenEye, test: 1529
 5: DoS GoldenEye - Attempted, test: 17
 6: DoS Hulk, test: 31381
@@ -16,7 +16,7 @@
 15: Infiltration, test: 10
 16: Infiltration - Attempted, test: 10
 17: Infiltration - Portscan, test: 14309
-18: Portscan, test: 31920
+18: Portscan, test: 31861
 19: SSH-Patator, test: 604
 20: SSH-Patator - Attempted, test: 6
 21: Web Attack - Brute Force, test: 21

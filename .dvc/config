@@ -1,2 +1,8 @@
+[cache]
+    shared = group
+    type = symlink
 ['remote "experiments"']
     url = gdrive://10Zlj6sg3Nov98x3_QWvwMVG09_QCKSM6/experiments
+['remote "default"']
+    url = s3://dvc
+    endpointurl = https://dagshub.com/liverHawk/imbalanced-dataset.s3
